@@ -1,0 +1,35 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+
+<h2 style="color:green;"><b>Plants Categories</b></h2>
+
+<table style="width:100%" class="table">
+  <tr style="color:green;">
+    <th>Sl No.</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+
+  </tr>
+{% for data in cdata %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>  {{data.1}}  </td>
+
+
+    <td> <a href="edit_category_link/{{data.0}}">Edit</a></td>
+    <td> <a href="register_item/{{data.0}}">add item</a></td>
+    <td> <a href="delete_category/{{data.0}}">Remove</a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+
+</div>
+{% endblock content %}
+

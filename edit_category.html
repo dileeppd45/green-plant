@@ -1,0 +1,25 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+<h2 style="color:green;">Edit Category</h2>
+
+<table class="table">
+    <form action="../update_category" method="post">
+  {% csrf_token %}
+
+  <tr>
+    <th style="color:green;">Category :</th>
+    <td><input type="text" name="txtName" value="{{ data.1 }}" required></td>
+  </tr>
+ <tr>
+    <td> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+  </tr>
+    </form>
+</table>
+</div>
+
+{% endblock content %}
+
+

@@ -1,0 +1,43 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+  <div>
+    <div align="center"><h2 style="color:green;"><b>Reply Feedback</b></h2></div>
+
+    <table class="table">
+      <form action="../edit_reply_submit" method="post">
+    {% csrf_token %}
+      <tr>
+        <th style="color:green;">
+          <label class="text-success">User Name :</label>
+        </th>
+        <td><b>{{data.1}}</b></td>
+      </tr>
+      <tr>
+        <th style="color:green;">
+          <label class="text-success">Feedback :</label>
+        </th>
+        <td>
+          <textarea type="text"  name="fb" readonly style="min-height:20vh;">{{data.3}}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th style="color:green;">
+          <label class="text-success">Reply :</label>
+        </th>
+        <td>
+          <textarea type="text" name="reply" required style="min-height:20vh;">{{data.4}}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Submit" class="btn btn-success"></td>
+      </tr>
+       </form>
+    </table>
+
+
+</div>
+</div>
+{% endblock content %}

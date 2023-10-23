@@ -1,0 +1,25 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+ <div><h2 style="color:green;"><b>Pending Reply</b></h2></div>
+  <table class="table">
+    <tr style="color:green;">
+      <th>User Name</th>
+      <th>Feedback</th>
+      <th>Date</th>
+        <th></th>
+    </tr>
+    {% for data in table %}
+    <tr>
+
+        <td>{{data.1}}</td>
+        <td>{{data.3}}</td>
+        <td>{{data.2}}</td>
+        <td><a href="../reply_fb/{{data.0}}">Reply</a></td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'signbase.html' %}
+{% load static %}
+{% block content %}
+<section id="signin">
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+<div>
+  <form action="signup" method="post">
+      {% csrf_token %}
+    <h2 class="text-success center"><b>Signin Form</b></h2>
+  <div class="center">
+    <table>
+      <tr><label  class="text-success" style="float:left; padding-left:15px;"><b>Username :</b></label></tr>
+      <tr><input type="text" id="name" name="name" placeholder="Enter Username" required></tr>
+
+      <tr><label  class="text-success" style="float:left; padding-left:15px;"><b>Email :</b></label></tr>
+      <tr><input type="text" id="email" name="email" placeholder="Email." required></tr>
+
+      <tr><label  class="text-success" style="float:left; padding-left:15px;"><b>Address :</b></label></tr>
+      <tr><input type="text" id="address" name="address" placeholder="Address" required></tr>
+
+      <tr><label  class="text-success" style="float:left; padding-left:15px;"><b>Pincode :</b></label></tr>
+      <tr><input type="number" id="pincode" name="pincode" placeholder="Pincode." required></tr>
+
+      <tr><label  class="text-success" style="float:left; padding-left:15px;"><b>Contact Number :</b></label></tr>
+      <tr><input type="number" id="phone" name="phone" placeholder="Phone Number" required ></tr>
+
+      <tr><label  class="text-success" style="float:left; padding-left:15px;"><b>Password :</b></label></tr>
+      <tr><input type="text" id="password" name="password" placeholder="password."required></tr>
+
+      <tr><button type="submit" class="btn btn-success">Signin</button></tr>
+    </table>
+  </div>
+  </form>
+    <a href="{% url 'login' %}">Login</a>
+
+</div>
+</div>
+</section>
+{% endblock content %}
+
+
+

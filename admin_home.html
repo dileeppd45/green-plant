@@ -1,0 +1,32 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<h2 style="color:green;"> <b>Pending Delivery Orders</b></h2>
+<table class="table">
+  <tr style="color:green;">
+    <th>Sl No</th>
+      <th>Brought By</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Payment Status</th>
+      <th>Delevery Status</th>
+      <th></th>
+  </tr>
+  {% for data in cdata %}
+  <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{data.1}}</td>
+      <td>{{data.2}}</td>
+      <td>{{data.3}}</td>
+      <td>{{data.5}}</td>
+      <td>{{data.4}}</td>
+    <td><a href="../view_orders/{{data.0}}">View</a></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock content %}
+
+

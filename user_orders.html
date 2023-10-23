@@ -1,0 +1,52 @@
+
+{% extends 'userbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:20vh; margin-top:100px; margin-bottom: 75px;">
+<h2 style="color:green;"><b>Approved Delevery Orders</b></h2>
+<table class="table">
+  <tr style="color:green;">
+    <th>Sl No</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Payment Status</th>
+      <th>Delivery Status</th>
+    <th></th>
+  </tr>
+  {% for data in cdata %}
+  <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{data.2}}</td>
+      <td><b>₹{{data.3}}</b></td>
+      <td>{{data.5}}</td>
+      <td>{{data.4}}</td>
+
+    <td><a href="../user_approved_orders/{{data.0}}">View</a></td>
+  </tr>
+  {% endfor %}
+</table>
+ </div>
+<div class="container" align="center" style=" min-height:20vh; margin-top:100px; margin-bottom: 75px;">
+    <h2 style="color:green;"><b>Pending Delevery Orders</b></h2>
+<table class="table">
+  <tr style="color:green;">
+    <th>Sl No</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Payment Status</th>
+      <th>Delivery Status</th>
+
+  </tr>
+  {% for data in mata %}
+  <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{data.2}}</td>
+      <td><b>₹{{data.3}}</b></td>
+      <td>{{data.5}}</td>
+      <td>{{data.4}}</td>
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock content %}

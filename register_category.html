@@ -1,0 +1,29 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+  <div align="center" style="color:green;"><h2><B>Register Category</B></h2></div>
+
+<table class="table">
+  <form action="register_category" method="post">
+  {% csrf_token %}
+  <tr>
+    <th style="color:green;">
+      <label class="text-success">Product Name:</label>
+    </th>
+    <td>
+      <input type="text" name="txtName" required>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Register" class="btn btn-success"></td>
+  </tr>
+</form>
+</table>
+
+</div>
+
+{% endblock content %}
+
+

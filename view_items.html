@@ -1,0 +1,37 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<h2 style="color:green;"><b>Book Now</b></h2>
+
+<table class="table">
+  <tr style="color:green;">
+    <th>Sl No.</th>
+    <th colspan="2">Name</th>
+    <th>prise</th>
+    <th>quqntity</th>
+    <th>add item</th>
+  </tr>
+  {% for data in data %}
+  <form action="../add_cart/{{data.0}}" method="post">
+    {% csrf_token %}
+  <tr>
+      <td>{{forloop.counter}}</td>
+      <td> {{data.2}} </td>
+      <td><img  src="{{data.5}}" style="width:100px;"></td>
+      <td><b>₹{{data.4}}</b></td>
+      <td><input type="number" name="quantity" required min="1" value="1"></td>
+      <td>
+        <input value={{data.4}} name="prise" hidden>
+        <input value={{data.0}} name="pid" hidden >
+        <input value={{data.1}} name="catid" hidden >
+        <input type="submit" value="add to cart" class="btn btn-success">
+      </td>    
+  </tr>
+  </form>
+{% endfor %} 
+</table>
+</div>
+{% endblock content %}
+

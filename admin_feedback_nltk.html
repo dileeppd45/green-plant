@@ -1,0 +1,21 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+ <div><h2 style="color:green;"><b>Feedback Review</b></h2></div>
+  <table class="table">
+    <tr style="color:green;" >
+      <th>Positive Review</th>
+         <th>Negative Review</th>
+      <th>Average Review</th>
+        <th></th>
+
+    </tr>
+    <tr>
+        <td>{{data.1}}</td>
+        <td>{{data.2}}</td>
+        <td>{{data.3}}</td>
+    </tr>
+  </table>
+</div>
+{% endblock content %}

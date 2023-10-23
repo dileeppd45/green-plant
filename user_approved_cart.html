@@ -1,0 +1,40 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<br>
+<br>
+<h2 style="color:green;">  <b>Ordered Plants</b></h2>
+
+<table style="width:80%" class="table">
+    <tr style="color:green;" >
+        <th>Sl No</th>
+        <th>Items</th>
+        <th>image</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th>total</th>
+
+
+    </tr>
+{% for data in cart %}
+
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{data.1}} </td>
+        <td> <img  src="{{data.2}}" style="width:100px; height:100px;">  </td>
+        <td> {{data.3}}  </td>
+        <td> {{data.6}} </td>
+        <td> {{data.7}}  </td>
+    </tr>
+
+{% endfor %} 
+<tr>
+    <th colspan="5" style="color:green;"><b>total amount</b></th>
+    <td>{{ta}}</td>
+
+</tr>
+</table>
+</div>
+{% endblock content %}

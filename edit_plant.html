@@ -1,0 +1,49 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<h2 style="color:green;">Edit Plants</h2>
+<form action="../update_plant" method="post" id="statusform">
+  {% csrf_token %}
+<table class="table">
+
+  <tr>
+    <td style="color:green;">plant name :</td>
+    <td><input type="text" name="pname" value="{{ data.2 }}" style="height:50px;" required></td>
+
+  </tr>
+  <tr>
+    <td style="color:green;">discription :</td>
+    <td><textarea type="text" name="discription" required style="min-height:20vh;">{{ data.3 }}</textarea></td>
+
+  </tr>
+  <tr>
+    <td style="color:green;">prise :</td>
+    <td><input type="text" name="prise" value="{{ data.4 }}" min="1" required ></td>
+
+  </tr>
+  <tr>
+    <td style="color:green;">image link :</td>
+    <td><textarea type="text" name="image" required style="min-height:20vh;">{{ data.5 }}</textarea></td>
+  </tr>
+  <tr>
+    <td style="color:green;">status :</td>
+    <td>
+      <select id="status" name="status" form="statusform" required >
+        <option value="{{data.6}}" selected>{{data.6}}(default)</option>
+        <option value="available">available</option>
+        <option value="not_available">not available</option>
+      </select>
+    </td>
+  </tr>
+
+ <tr>
+    <td> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+  </tr>
+
+</table>
+</form>
+</div>
+{% endblock content %}

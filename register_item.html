@@ -1,0 +1,56 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<h2 style="color:green;"><b>Register Plant</b></h2>
+
+ 
+
+
+<table class="table" style="color:green;">
+  <form action="plant_add" method="POST" id="statusform">
+  {% csrf_token %}
+  <tr>
+    <td style="color:green;">Name :</td>
+    <input value={{id}} name="cid" hidden >
+    <td><input type="text" name="txtname" required ></td>
+  </tr>
+  <tr>
+    <td style="color:green;">description :</td>
+    <td>
+       <textarea id="description" name="txtdes" style="min-height:20vh;" required ></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td style="color:green;">image url :</td>
+    <td>
+      <textarea type="text" name="imgurl" style="min-height:20vh;" required ></textarea>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="color:green;">price :</td>
+    <td><input type="text" name="txtprice" required  min="1"></td>
+  </tr>
+
+  <tr>
+    <td style="color:green;">status :</td>
+    <td>
+      <select id="status" name="txtstatus" form="statusform" required >
+        <option value="" selected>---------</option>
+        <option value="available">available</option>
+        <option value="not_available">not available</option>
+      </select>
+    </td>
+  </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="submit"class="btn btn-success" ></td>
+    </tr>
+
+</form>
+</table>
+
+</div>
+{% endblock content %}

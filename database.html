@@ -1,0 +1,127 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+<h2>View order_master</h2>
+
+<table style="width:50%" class="table">
+    <tr style="color:green;">
+        <th>Sl No.</th>
+        <th>idorder_master</th>
+        <th>user_id</th>
+        <th>order_date</th>
+        <th>total_amount</th>
+        <th>delivery_status</th>
+        <th>payment_status</th>
+    </tr>
+{% for data in order_master %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{data.0}} </td>
+        <td> {{data.1}}  </td>
+        <td>{{data.2}}</td>
+        <td>{{data.3}}</td>
+        <td> {{data.4}}  </td>
+        <td>{{data.5}}</td>
+    </tr>
+{% endfor %}  
+</table>
+
+<h2>view order_items</h2>
+<table style="width:50%" class="table">
+    <tr>
+        <th>idorder_items</th>
+        <th>idorder_master</th>
+        <th>idplants</th>
+        <th>quantity</th>
+        <th>total</th>
+    </tr>
+{% for data in order_items %}
+    <tr>
+        <td> {{data.0}} </td>
+        <td> {{data.1}}  </td>
+        <td>{{data.2}}</td>
+        <td>{{data.3}}</td>
+        <td> {{data.4}}  </td>
+    </tr>
+{% endfor %}  
+</table>
+
+<h2>view category</h2>
+<table style="width:50%" class="table">
+    <tr>
+        <th>idcategory</th>
+        <th>name</th>
+    </tr>
+{% for data in category %}
+    <tr>
+        <td> {{data.0}} </td>
+        <td> {{data.1}}  </td>
+    </tr>
+{% endfor %}  
+</table>
+
+<h2>view plants</h2>
+<table style="width:50%" class="table">
+    <tr>
+        <th>idplants</th>
+        <th>idcategory</th>
+        <th>name</th>
+        <th>description</th>
+        <th>prise</th>
+        <th>image_url</th>
+        <th>status</th>
+    </tr>
+{% for data in plants %}
+    <tr>
+        <td> {{data.0}} </td>
+        <td> {{data.1}}  </td>
+        <td>{{data.2}}</td>
+        <td>{{data.3}}</td>
+        <td> {{data.4}}  </td>
+        <td> <img  src="{{data.5}}" style="width:100px;">{{data.5}}  </td>
+        <td>{{data.6}}</td>
+    </tr>
+{% endfor %}  
+</table>
+
+<h2>view user</h2>
+<table style="width:50%" class="table">
+    <tr>
+        <th>user_id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>pincode</th>
+        <th>password</th>
+    </tr>
+{% for data in user %}
+    <tr>
+        <td> {{data.0}} </td>
+        <td> {{data.1}}  </td>
+        <td> {{data.2}} </td>
+        <td> {{data.3}}  </td>
+        <td> {{data.4}} </td>
+        <td> {{data.5}}  </td>
+        <td>{{data.6}}</td>
+    </tr>
+{% endfor %}  
+</table>
+
+<h2>view admin</h2>
+<table style="width:50%" class="table">
+    <tr>
+        <th>admin_id</th>
+        <th>password</th>
+    </tr>
+{% for data in admin %}
+    <tr>
+        <td> {{data.0}} </td>
+        <td> {{data.1}}  </td>
+    </tr>
+{% endfor %}  
+</table>
+</div>
+
+{% endblock content %}

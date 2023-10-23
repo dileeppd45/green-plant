@@ -1,0 +1,84 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+    <h2 style="color:green;">Your Cart</h2>
+<table style="width:80%" class="table">
+    <tr style="color:green;">
+
+        <th>Sl No.</th>
+        <TH colspan="2" >Plants</TH>
+
+        <th>price</th>
+        <th>quantity</th>
+        <th>total</th>
+        <th>edit cart</th>
+
+    </tr>
+{% for data in cart %}
+
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{data.1}} </td>
+        <td> <img  src="{{data.2}}" style="width:100px;">  </td>
+        <td> {{data.3}}  </td>
+        <td> {{data.6}} </td>
+        <td> {{data.7}}  </td>
+        <td>
+            <a href="../edit_cart_item/{{data.8}}">Edit</a>
+            <a href="../delete_cart_item/{{data.8}}">Remove</a>
+        </td>
+    </tr>
+
+{% endfor %}
+<tr>
+    <th colspan="5">total amount</th>
+    <td>{{ta}}</td>
+    <td>
+        <a href="pay_card_gateway/{{idmaster}}" class="btn btn-success"> Place Order</a>
+    </td>
+</tr>
+</table>
+</div>
+
+    <!--
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<h2> Your Cart</h2><br><br>
+ <div style="overflow:scroll; width:65%;float:left;height:700px;">
+{% for data in cart %}
+<div class="gallery"style="width:250px; height:500px;align:center;">
+  <h3>{{data.1}}</h3>
+  <a target="_blank" href="{{data.2}}"><img src="{{data.2}}" alt="Cinque Terre" style="width:250px; height:250px;"></a>
+    <p>₹{{data.3}}</p>
+    <p>QTY:{{data.6}}</p>
+    <p>Total:₹{{data.7}}</p>
+    <a href="../edit_cart_item/{{data.8}}">Edit</a>
+    <a href="../delete_cart_item/{{data.8}}">Remove</a>
+
+</div>
+
+{% endfor %}
+ </div>
+<div style="float:right; width:30%; height:700px;">
+    <br><br><br>
+    <table>
+    <tr>
+        <th><h3>Total Amount :</h3></th>
+        <td><h3> ₹{{ta}}</h3></td>
+    </tr>
+    <tr>
+        <td></td>
+    <td>
+        <a href="pay_card_gateway/{{idmaster}}" class="btn btn-success"> Place Order</a>
+    </td>
+    </tr>
+    </table>
+</div>
+
+
+</div>
+     -->
+{% endblock content %}

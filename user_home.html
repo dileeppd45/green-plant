@@ -1,0 +1,26 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<h2>View Items From Category</h2>
+
+<table style="width:70%" class="table">
+  <tr style="color:green;">
+    <th>Sl No.</th>
+    <th>Category</th>
+
+
+  </tr>
+{% for data in cdata %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>  {{data.1}}  </td>
+    <td> <a href="view_items/{{data.0}}">view items</a></td>
+  </tr>
+
+{% endfor %}
+</table>
+</div>
+
+{% endblock content %}

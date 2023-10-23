@@ -1,0 +1,31 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+    <form action="../card_verify" method="post">
+        {% csrf_token %}
+    <table class="table" style="width:50%;">
+        <tr>
+            <th style="color:green;">Name On Card :</th>
+            <td><input type="text" name="card_name"  value="sam"required></td>
+        </tr>
+        <tr>
+            <th style="color:green;">Card Number :</th>
+            <td><input type="number" name="card_num" value="11112222" required></td>
+        </tr>
+        <tr>
+            <th style="color:green;">CVV :</th>
+            <td><input type="number" name="cvv" max-length="3" value="123" required></td>
+        </tr>
+        <tr>
+            <th style="color:green;">Expiration Date :</th>
+            <td><input type="date" name="card_expdate" value="2025-11-11" required></td>
+        </tr>
+        <tr>
+            <th><input type="submit" value="Submit" class="btn btn-success"></th>
+            <td></td>
+        </tr>
+    </table>
+        </form>
+</div>
+{% endblock content %}
